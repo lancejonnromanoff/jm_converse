@@ -1,0 +1,621 @@
+
+/*fonts*/
+@font-face {
+    font-family: "druk";
+    src: url('../fonts/DrukWideBold.ttf')
+}
+
+@font-face {
+    font-family: "proxima";
+    src: url('../fonts/ProximaNovaRegular.otf')
+}
+
+@font-face {
+    font-family: "proxima-bold";
+    src: url('../fonts/ProximaNovaBold.otf')
+}
+
+body {
+  font-family: "proxima", sans-serif;
+}
+
+/*subheader*/
+
+.sub-header {
+  position: relative;
+}
+
+.sub-header_banner {
+  background-image: url(../images/header_mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  z-index: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .sub-header_banner {
+    background-image: url(../images/header_full.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 675px;
+  }
+}
+
+.sub-header_copy {
+  line-height: 1;
+  text-align: center;
+  z-index: 1;
+}
+
+@media screen and (min-width: 800px) {
+  .sub-header_copy {
+    position: absolute;
+    top: 120px;/*originally:50px*/
+    width: 100%;
+    /*forced vertical center*/
+    /* top: 50%; */
+    /* margin: auto 0; */
+    /* transform: translateY(-50%); */
+
+  }
+}
+
+.sub-header_copy p {
+  font-size: 20px;
+  margin: 0 auto 30px auto;
+}
+
+.logo {
+  margin-top: 15px;
+}
+
+.sub-header_copy button {
+  border: 0;
+  border-radius: 0;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  font-family: "proxima", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 20px;
+  padding: 20px 30px;
+  position: relative;
+  width: calc(100% - 40px);
+}
+
+.sub-header_copy button:hover {
+  background-color: #FF5000;
+  transition: 0.2s ease-out;
+}
+
+.sub-header_copy button:hover .text {
+  visibility: hidden;
+}
+
+.sub-header_copy button .arrow {
+  opacity: 0;
+  left: -60px;
+  position: absolute;
+}
+
+.sub-header_copy button:hover .arrow {
+  display: block;
+  top: 15px;
+  left: 47%;
+  opacity: 1;
+  transition: 0.2s ease-out;
+}
+
+.sub-header_copy button .arrow svg {
+  height: 35px;
+  width: 57px;
+}
+
+@media screen and (min-width: 800px) {
+  .sub-header_copy button {
+    font-size: 24px;
+    width: auto;
+  }
+
+  .sub-header_copy button:hover .arrow {
+    left: 36%;
+  }
+}
+
+h2 {
+  font-family: "proxima-bold", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  margin: 15px auto 30px auto;
+  max-width: 50%;
+}
+
+h3 {
+  font-family: "proxima-bold", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 50px auto;
+  text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  h2 {
+    font-size: 70px;
+    max-width: 50%;
+  }
+  h3 {
+    font-size: 50px;
+    padding: 0 80px;
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  h2 {
+    max-width: 25%;
+  }
+}
+
+/*photo block*/
+
+.photo-grid {
+  background-color: #000;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  overflow: hidden;
+}
+
+.photo {
+  color: #fff;
+  width: 100%;
+  position: relative;
+}
+
+.photo .arrow {
+  opacity: 0;
+  margin: 38% 29% 0 28%;
+  position: absolute;
+  left: -200px;
+}
+
+.photo:hover {
+  background-color: #FF5000;
+  cursor: pointer;
+}
+
+.photo:hover .arrow {
+  display: block;
+  left: 0;
+  opacity: 1;
+  transition: 0.2s ease-out;
+}
+
+.photo:hover .arrow svg {
+  width: calc(100vw / 9.6);
+  height: calc(100vw / 13.52);
+}
+
+@media screen and (max-width: 800px) {
+  .photo:hover .arrow svg {
+    width: calc(100vw / 4.8);
+    height: calc(100vw / 6.76);
+  }
+}
+
+.photo:hover .image img {
+  visibility: hidden;
+}
+
+.photo:hover::after {
+  background: transparent;
+}
+
+.photo:hover .title {
+  visibility: hidden;
+}
+
+.photo::after {
+  background: linear-gradient(to top, #000, transparent);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.photo.no-gradient::after {
+  background: transparent;
+}
+
+.photo .image img {
+  width: 100%;
+}
+
+.photo_copy {
+  position: absolute;
+  bottom: 0;
+  padding: 20px;
+  z-index: 3;
+}
+
+.title {
+  font-size: calc(100vw / 80);
+  line-height: 1;
+  padding-bottom: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .title {
+    display: none;
+  }
+}
+
+.name {
+  font-family: "druk", sans-serif;
+  font-size: calc(100vw / 20);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.name.small {
+  font-size: calc(100vw / 24);
+}
+
+.name span {
+  font-size: calc(100vw / 27);
+}
+
+@media screen and (min-width: 800px) {
+  .name {
+    font-size: calc(100vw / 48);
+  }
+  .name.small {
+    font-size: calc(100vw / 55);
+  }
+
+  .name span {
+    font-size: calc(100vw / 64);
+  }
+}
+
+
+
+@media screen and (min-width: 800px) {
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+}
+
+/*award section*/
+
+.award {
+  background-image: url(../images/bkg_award.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  color: #fff;
+  padding: 60px 0 0 0;
+}
+
+.award a {
+  color: #000;
+  text-decoration: none;
+}
+
+.award_copy {
+  font-family: "druk", sans-serif;
+  font-size: calc(100vw / 15);
+  line-height: 1;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 800px) {
+  .award {
+    height: 400px;
+    padding: 100px 0 0 0;
+  }
+
+  .award_copy {
+    font-size: calc(100vw / 24);
+  }
+}
+
+.award .arrows {
+  margin: 50px auto 0 auto;
+  width: 187px;
+  height: 187px;
+  position: relative;
+}
+
+.award .arrows .arrow {
+  position: absolute;
+}
+
+.award .arrows .arrow .circle-arrow svg {
+  width: 103px;
+  height: 73px;
+}
+
+.award .arrows .arrow.on {
+  opacity: 0;
+}
+
+.award .arrows:hover .arrow.on {
+  opacity: 1;
+  transition: 0.2s ease-in;
+  position: absolute;
+}
+
+.award .arrows .arrow.on .circle-arrow {
+  opacity: 0;
+  left: 0px;
+  top: 56px;
+  position: absolute;
+}
+
+.award .arrows:hover .arrow.on .circle-arrow {
+  opacity: 1;
+  left: 40px;
+  transition: 0.2s ease-in;
+}
+
+.award .arrows .arrow.off {
+  opacity: 1;
+  transition: 0.5s ease-out;
+}
+
+.award .arrows:hover .arrow.off {
+  opacity: 0;
+  transition: 0.2s ease-out;
+  position: absolute;
+}
+
+.award .arrows .arrow.off .circle-arrow {
+  opacity: 1;
+  left: 40px;
+  top: 56px;
+  position: absolute;
+}
+
+.award .arrows:hover .arrow.off .circle-arrow {
+  opacity: 0;
+  left: 120px;
+  transition: 0.2s ease-out;
+}
+
+
+
+/*footer*/
+
+footer {
+  background-color: #EDFC71;
+  color: #000;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer_copy {
+  font-family: "druk", sans-serif;
+  font-size: calc(100vw / 15);
+  line-height: 1;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.footer_contact {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.footer_button button {
+  border: 0;
+  border-radius: 0;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  font-family: "proxima", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 20px 30px;
+  position: relative;
+  width: 100%;
+}
+
+.footer_button button:hover {
+  background-color: #FF5000;
+  transition: 0.2s ease-out;
+}
+
+.footer_button button:hover .text {
+  visibility: hidden;
+}
+
+.footer_button button .arrow {
+  opacity: 0;
+  left: -60px;
+  position: absolute;
+}
+
+.footer_button button:hover .arrow {
+  display: block;
+  top: 15px;
+  left: 47%;
+  opacity: 1;
+  transition: 0.2s ease-out;
+}
+
+.footer_button button .arrow svg {
+  height: 35px;
+  width: 57px;
+}
+
+@media screen and (min-width: 800px) {
+footer {
+  padding: 140px 5% 120px 5%;
+}
+
+.footer_copy {
+  margin-bottom: 80px;
+}
+
+.footer_contact {
+  font-size: 24px;
+  margin-bottom: 80px;
+}
+
+.footer_button button {
+  font-size: 24px;
+  width: auto;
+}
+
+.footer_button button:hover .arrow {
+  left: 36%;
+}
+
+}
+
+
+/*modals*/
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 20; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow-y: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+}
+
+.popup {
+  margin: 52px 0 0 0;
+  width: 100%;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+@media screen and (min-width: 800px) {
+  .popup {
+    margin: 100px auto;
+    width: 78%;
+  }
+}
+
+.popup .close {
+  transition: all 200ms;
+  font-size: 40px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #333;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 0;
+  right: 0;
+}
+
+.popup .close .closex {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  width: 35px;
+  height: 30px;
+  text-align: center;
+  padding: 0 5px 20px 5px;
+}
+
+.popup .close:hover {
+  cursor: pointer;
+}
+
+.modal_content {
+  color: #000;
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+@media screen and (min-width: 800px) {
+  .modal_content {
+    font-size: calc(100vw / 80);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.modal_content .modal_image {
+  background-color: #000;
+}
+
+.modal_content .modal_image img {
+  width: 100%;
+}
+
+.modal_content .modal_copy img.product {
+  width: 50%;
+  max-width: 320px;
+}
+
+.modal_content .modal_copy {
+  background: #fff;
+  padding: 40px;
+}
+
+.modal_content .modal_copy p {
+  margin: 0 0 40px 0;
+  padding: 0;
+}
+
+.modal_content .modal_copy p.modal_name {
+  font-family: "proxima-bold", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.modal_content .modal_copy p.available {
+  color: #696969;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 800px) {
+  .modal_content .modal_image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal_content .modal_copy p {
+    margin: 0 0 calc(100vw / 48) 0;
+  }
+
+  .modal_content .modal_copy p.modal_name {
+    font-size: calc(100vw / 40);
+  }
+
+  .modal_content .modal_copy p.available {
+    font-size: calc(100vw / 96);
+  }
+}
